@@ -1,13 +1,26 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class Radio {
     private int currentRadioStation;
+    private int numberRadioStation = 10;
     private int minRadioStation = 0;
     private int maxRadioStation = 9;
     private int minSoundVolume = 0;
-    private int maxSoundVolume = 10;
+    private int maxSoundVolume = 100;
     private int currentSoundVolume;
+
+    public Radio(int numberRadioStation, int maxSoundVolume) {
+        this.numberRadioStation = numberRadioStation;
+        this.maxSoundVolume = maxSoundVolume;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
@@ -15,6 +28,10 @@ public class Radio {
 
     public void setCurrentRadioStation(int currentRadioStation) {
         this.currentRadioStation = currentRadioStation;
+    }
+
+    public int getNumberRadioStation() {
+        return numberRadioStation;
     }
 
     public int getMinRadioStation() {
@@ -53,33 +70,38 @@ public class Radio {
         return currentSoundVolume;
     }
 
-    public void setCurrentSoundVolume(int soundVolume) {
-        this.currentSoundVolume = soundVolume;
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        this.currentSoundVolume = currentSoundVolume;
     }
+
 
     // Переключение радио станций
 
     public void switchRadioStationOnMin() {  // переключение на минимальную станцию
         if (currentRadioStation >= maxRadioStation) {
             currentRadioStation = minRadioStation;
+            return;
         }
+        currentRadioStation++;
     }
 
     public void switchRadioStationOnMax() {  // переключение на максимальную станцию
         if (currentRadioStation <= minRadioStation) {
             currentRadioStation = maxRadioStation;
+            return;
         }
+        currentRadioStation--;
     }
 
     public void decreaseRadioStationByOne() {  // переключение на одну станцию назад
-        if (currentRadioStation == maxRadioStation) {
+        if (currentRadioStation == numberRadioStation) {
             return;
         }
         currentRadioStation--;
     }
 
     public void increaseRadioStationByOne() {  // переключение на одну станцию вперед
-        if (currentRadioStation == minRadioStation) {
+        if (currentRadioStation == numberRadioStation) {
             return;
         }
         currentRadioStation++;
