@@ -110,7 +110,7 @@ public class Radio {
     }
 
     public void setNumberRadioStation(int currentRadioStation) {  // установка радиостанции напрямую
-        if (currentRadioStation > maxRadioStation) {
+        if (currentRadioStation > numberRadioStation) {
             return;
         }
         if (currentRadioStation < minRadioStation) {
