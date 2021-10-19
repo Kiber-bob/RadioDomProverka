@@ -7,12 +7,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RadioTest{
 
     @Test
-    public void shouldUseRadio() {
+    public void shouldUseRadio10Station() {
         Radio radio = new Radio(
+                10,
+                0,
                 10
         );
         assertEquals(10, radio.getNumberRadioStation());
     }
+
+    @Test
+    public void shouldUseRadio20Station() {
+        Radio radio = new Radio(
+                20,
+                0,
+                20
+        );
+        assertEquals(20, radio.getNumberRadioStation() );
+    }
+
 
     @Test
     public void shouldSwitchRadioStationOnMIn() {
@@ -61,23 +74,33 @@ class RadioTest{
     }
 
     @Test
-    public void shouldSetNumberRadioStationTest1() {
-        Radio radio = new Radio();
-        radio.setNumberRadioStation(11);
-        radio.setNumberRadioStation(2);
-        int expected = 2;
-        int actual = radio.getCurrentRadioStation();
+    public void shouldSetNumberStation15Test() {
+        Radio radio = new Radio(
+                20,
+                0,
+                20
+        );
+        radio.setNumberRadioStation(21);
+        radio.setNumberRadioStation(-3);
+        radio.setNumberRadioStation(15);
+        int expected = 15;
+        int actual = radio.getNumberRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldSetNumberRadioStationTest2() {
-        Radio radio = new Radio();
+    public void shouldUseNumberStation10Test() {
+        Radio radio = new Radio(
+                10,
+                0,
+                10
+        );
+        radio.setNumberRadioStation(11);
         radio.setNumberRadioStation(-1);
-        radio.setNumberRadioStation(4);
-        int expected = 4;
-        int actual = radio.getCurrentRadioStation();
-        assertEquals(expected, actual);
+        radio.setNumberRadioStation(8);
+        int expected = 8;
+        int actual = radio.getNumberRadioStation();
+        assertEquals(expected,actual);
     }
 
     @Test

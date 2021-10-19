@@ -3,7 +3,9 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentRadioStation;
-    private int numberRadioStation = 10;
+    private int maxNumberRadioStation;
+    private int minNumberRadioStation;
+    private int numberRadioStation;
     private int minRadioStation = 0;
     private int maxRadioStation = 9;
     private int minSoundVolume = 0;
@@ -13,7 +15,9 @@ public class Radio {
     public Radio() {
     }
 
-    public Radio(int numberRadioStation) {
+    public Radio(int maxNumberRadioStation, int minNumberRadioStation, int numberRadioStation) {
+        this.maxNumberRadioStation = maxNumberRadioStation;
+        this.minNumberRadioStation = minNumberRadioStation;
         this.numberRadioStation = numberRadioStation;
     }
 
@@ -109,14 +113,14 @@ public class Radio {
         currentRadioStation++;
     }
 
-    public void setNumberRadioStation(int currentRadioStation) {  // установка радиостанции напрямую
-        if (currentRadioStation > numberRadioStation) {
+    public void setNumberRadioStation(int numberRadioStation) {  // установка радиостанции напрямую
+        if (numberRadioStation > maxNumberRadioStation) {
             return;
         }
-        if (currentRadioStation < minRadioStation) {
+        if (numberRadioStation < minNumberRadioStation) {
             return;
         }
-        this.currentRadioStation = currentRadioStation;
+        this.numberRadioStation = numberRadioStation;
     }
 
     // Громкость Звука
