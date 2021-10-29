@@ -3,11 +3,9 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentRadioStation;
-    private int maxNumberRadioStation;
-    private int minNumberRadioStation;
-    private int numberRadioStation;
+    private int numberRadioStation = 10;
     private int minRadioStation = 0;
-    private int maxRadioStation = 9;
+    private int maxRadioStation  = 9;
     private int minSoundVolume = 0;
     private int maxSoundVolume = 100;
     private int currentSoundVolume;
@@ -15,26 +13,13 @@ public class Radio {
     public Radio() {
     }
 
-    public Radio(int maxNumberRadioStation, int minNumberRadioStation, int numberRadioStation) {
-        this.maxNumberRadioStation = maxNumberRadioStation;
-        this.minNumberRadioStation = minNumberRadioStation;
+    public Radio(int numberRadioStation) {
         this.numberRadioStation = numberRadioStation;
     }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
-
-    public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > maxRadioStation) {
-            return;
-        }
-        if (currentRadioStation < minRadioStation) {
-            return;
-        }
-        this.currentRadioStation = currentRadioStation;
-    }
-
 
     public int getNumberRadioStation() {
         return numberRadioStation;
@@ -80,44 +65,41 @@ public class Radio {
         this.currentSoundVolume = currentSoundVolume;
     }
 
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation > 9) {
+            return;
+        }
+        if (currentRadioStation < 0) {
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
+    }
+
 
     // Переключение радио станций
 
-    public void switchRadioStationOnMin() {  // переключение на минимальную станцию
-        if (currentRadioStation >= maxRadioStation) {
-            currentRadioStation = minRadioStation;
+    public void switchRadioStationUp() {  // переключение на минимальную станцию
+        if (currentRadioStation >= 9) {
+            currentRadioStation = 0;
             return;
         }
         currentRadioStation++;
     }
 
-    public void switchRadioStationOnMax() {  // переключение на максимальную станцию
-        if (currentRadioStation <= minRadioStation) {
-            currentRadioStation = maxRadioStation;
+    public void switchRadioStationDown() {  // переключение на максимальную станцию
+        if (currentRadioStation <= 0) {
+            currentRadioStation = 9;
             return;
         }
         currentRadioStation--;
     }
 
-    public void decreaseRadioStationByOne() {  // переключение на одну станцию назад
-        if (currentRadioStation == maxRadioStation) {
-            return;
-        }
-        currentRadioStation--;
-    }
-
-    public void increaseRadioStationByOne() {  // переключение на одну станцию вперед
-        if (currentRadioStation == minRadioStation) {
-            return;
-        }
-        currentRadioStation++;
-    }
 
     public void setNumberRadioStation(int numberRadioStation) {  // установка радиостанции напрямую
-        if (numberRadioStation > maxNumberRadioStation) {
+        if (numberRadioStation > 9) {
             return;
         }
-        if (numberRadioStation < minNumberRadioStation) {
+        if (numberRadioStation < 0) {
             return;
         }
         this.numberRadioStation = numberRadioStation;
