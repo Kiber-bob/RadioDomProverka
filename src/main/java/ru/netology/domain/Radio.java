@@ -3,7 +3,7 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentRadioStation;
-    private int numberRadioStation = 10;
+    private int numberRadioStation;
     private int minRadioStation = 0;
     private int maxRadioStation  = 9;
     private int minSoundVolume = 0;
@@ -22,7 +22,7 @@ public class Radio {
     }
 
     public int getNumberRadioStation() {
-        return numberRadioStation;
+         return numberRadioStation;
     }
 
     public int getMinRadioStation() {
@@ -66,10 +66,10 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
-        if (currentRadioStation < 0) {
+        if (currentRadioStation < minRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
@@ -79,16 +79,16 @@ public class Radio {
     // Переключение радио станций
 
     public void switchRadioStationUp() {  // переключение на минимальную станцию
-        if (currentRadioStation >= 9) {
-            currentRadioStation = 0;
+        if (currentRadioStation >= maxRadioStation) {
+            currentRadioStation = minRadioStation;
             return;
         }
         currentRadioStation++;
     }
 
     public void switchRadioStationDown() {  // переключение на максимальную станцию
-        if (currentRadioStation <= 0) {
-            currentRadioStation = 9;
+        if (currentRadioStation <= minRadioStation) {
+            currentRadioStation = maxRadioStation;
             return;
         }
         currentRadioStation--;
@@ -96,26 +96,29 @@ public class Radio {
 
 
     public void setNumberRadioStation(int numberRadioStation) {  // установка радиостанции напрямую
-        if (numberRadioStation > 9) {
+        if (numberRadioStation > maxRadioStation) {
             return;
         }
-        if (numberRadioStation < 0) {
+        if (numberRadioStation < minRadioStation) {
             return;
         }
         this.numberRadioStation = numberRadioStation;
     }
 
+
     // Громкость Звука
 
     public void increaseSoundVolumeByOne() {
-        if (currentSoundVolume == minSoundVolume) {
+        if (currentSoundVolume >= maxSoundVolume) {
+            currentSoundVolume = maxSoundVolume;
             return;
         }
         currentSoundVolume++;
     }
 
     public void decreaseSoundVolumeByOne() {
-        if (currentSoundVolume == maxSoundVolume) {
+        if (currentSoundVolume <= minSoundVolume) {
+            currentSoundVolume = minSoundVolume;
             return;
         }
         currentSoundVolume--;
