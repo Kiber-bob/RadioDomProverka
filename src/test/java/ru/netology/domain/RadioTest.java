@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RadioTest {
 
 
-
     @Test
     public void shouldSwitchRadioStationUp() { // Увеличение на единицу, переключение на минимальную
         Radio radio = new Radio();
@@ -36,6 +35,8 @@ class RadioTest {
     @Test
     public void shouldSetNumberStationTest() {  // Выставление номера станции на прямую
         Radio radio = new Radio(10);
+        radio.setMaxNumberRadioStation(9);
+        radio.setMinNumberRadioStation(0);
         radio.setNumberRadioStation(5);
         radio.setNumberRadioStation(11);
         radio.setNumberRadioStation(-2);
@@ -46,11 +47,15 @@ class RadioTest {
 
     @Test
     public void shouldUseNumberStation10Test() {
-        Radio radio = new Radio(10); // Выставление номера станции напрямую
-        radio.setNumberRadioStation(0);
-        radio.setNumberRadioStation(12);
+        Radio radio = new Radio(20); // Выставление номера станции напрямую
+        radio.setMaxNumberRadioStation(19);
+        radio.setMinNumberRadioStation(0);
+
+        radio.setNumberRadioStation(15);
+
+        radio.setNumberRadioStation(20);
         radio.setNumberRadioStation(-1);
-        int expected = 0;
+        int expected = 15;
         int actual = radio.getNumberRadioStation();
         assertEquals(expected, actual);
     }
@@ -58,6 +63,7 @@ class RadioTest {
     @Test
     public void shouldSetCurrentRadioStation1() { //
         Radio radio = new Radio();
+        radio.setCurrentRadioStation(0);
         radio.setCurrentRadioStation(10);
         radio.setCurrentRadioStation(-1);
         int expected = 0;
