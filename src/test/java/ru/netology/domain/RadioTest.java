@@ -35,8 +35,8 @@ class RadioTest {
     @Test
     public void shouldSetNumberStationTest() {  // Выставление номера станции на прямую
         Radio radio = new Radio(10);
-        radio.setMaxNumberRadioStation(9);
-        radio.setMinNumberRadioStation(0);
+        radio.setMaxRadioStation(9);
+        radio.setMinRadioStation(0);
         radio.setNumberRadioStation(5);
         radio.setNumberRadioStation(11);
         radio.setNumberRadioStation(-2);
@@ -48,11 +48,9 @@ class RadioTest {
     @Test
     public void shouldUseNumberStation10Test() {
         Radio radio = new Radio(20); // Выставление номера станции напрямую
-        radio.setMaxNumberRadioStation(19);
-        radio.setMinNumberRadioStation(0);
-
+        radio.setMaxRadioStation(19);
+        radio.setMinRadioStation(0);
         radio.setNumberRadioStation(15);
-
         radio.setNumberRadioStation(20);
         radio.setNumberRadioStation(-1);
         int expected = 15;

@@ -25,20 +25,20 @@ public class Radio {
         return numberRadioStation;
     }
 
-    public int getMaxNumberRadioStation() {
-        return maxRadioStation;
-    }
-
-    public void setMaxNumberRadioStation(int maxNumberRadioStation) {
-        this.maxRadioStation = maxNumberRadioStation;
-    }
-
-    public int getMinNumberRadioStation() {
+    public int getMinRadioStation() {
         return minRadioStation;
     }
 
-    public void setMinNumberRadioStation(int minNumberRadioStation) {
-        this.minRadioStation = minNumberRadioStation;
+    public void setMinRadioStation(int minRadioStation) {
+        this.minRadioStation = minRadioStation;
+    }
+
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
+
+    public void setMaxRadioStation(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
     }
 
     public int getMinSoundVolume() {
@@ -66,10 +66,10 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > maxRadioStation) {
+        if (currentRadioStation > numberRadioStation) {
             return;
         }
-        if (currentRadioStation < minRadioStation) {
+        if (currentRadioStation < numberRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
