@@ -66,7 +66,7 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > maxRadioStation) {
+        if (currentRadioStation >= numberRadioStation) {
             return;
         }
         if (currentRadioStation < minRadioStation) {
@@ -92,17 +92,6 @@ public class Radio {
             return;
         }
         currentRadioStation--;
-    }
-
-
-    public void setNumberRadioStation(int numberRadioStation) {  // установка радиостанции напрямую
-        if (numberRadioStation > maxRadioStation) {
-            return;
-        }
-        if (numberRadioStation < minRadioStation) {
-            return;
-        }
-        this.numberRadioStation = numberRadioStation;
     }
 
 

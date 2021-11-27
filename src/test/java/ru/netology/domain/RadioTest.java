@@ -33,28 +33,24 @@ class RadioTest {
 
 
     @Test
-    public void shouldSetNumberStationTest() {  // Выставление номера станции на прямую
+    public void shouldSetNumberStation10Test() {  // Выставление номера станции на прямую
         Radio radio = new Radio(10);
-        radio.setMaxRadioStation(9);
-        radio.setMinRadioStation(0);
-        radio.setNumberRadioStation(5);
-        radio.setNumberRadioStation(11);
-        radio.setNumberRadioStation(-2);
+        radio.setCurrentRadioStation(5);
+        radio.setCurrentRadioStation(11);
+        radio.setCurrentRadioStation(-2);
         int expected = 5;
-        int actual = radio.getNumberRadioStation();
+        int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldUseNumberStation10Test() {
+    public void shouldUseNumberStation20Test() {
         Radio radio = new Radio(20); // Выставление номера станции напрямую
-        radio.setMaxRadioStation(19);
-        radio.setMinRadioStation(0);
-        radio.setNumberRadioStation(15);
-        radio.setNumberRadioStation(20);
-        radio.setNumberRadioStation(-1);
+        radio.setCurrentRadioStation(15);
+        radio.setCurrentRadioStation(20);
+        radio.setCurrentRadioStation(-1);
         int expected = 15;
-        int actual = radio.getNumberRadioStation();
+        int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
 
