@@ -10,7 +10,7 @@ class RadioTest {
     @Test
     public void shouldSwitchRadioStationUp() { // Увеличение на единицу, переключение на минимальную
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(7);
+        radio.setCurrentRadioStation(8);
         radio.switchRadioStationUp();
         radio.switchRadioStationUp();
         radio.switchRadioStationUp();
@@ -26,7 +26,7 @@ class RadioTest {
         radio.switchRadioStationDown();
         radio.switchRadioStationDown();
         radio.switchRadioStationDown();
-        int expected = 9;
+        int expected = 10;
         int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
@@ -36,7 +36,7 @@ class RadioTest {
     public void shouldSetNumberStation10Test() {  // Выставление номера станции на прямую
         Radio radio = new Radio(10);
         radio.setCurrentRadioStation(5);
-        radio.setCurrentRadioStation(11);
+        radio.setCurrentRadioStation(10);
         radio.setCurrentRadioStation(-2);
         int expected = 5;
         int actual = radio.getCurrentRadioStation();

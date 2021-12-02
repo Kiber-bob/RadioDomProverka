@@ -79,7 +79,7 @@ public class Radio {
     // Переключение радио станций
 
     public void switchRadioStationUp() {  // переключение на минимальную станцию
-        if (currentRadioStation >= maxRadioStation) {
+        if (currentRadioStation >= numberRadioStation) {
             currentRadioStation = minRadioStation;
             return;
         }
@@ -88,7 +88,7 @@ public class Radio {
 
     public void switchRadioStationDown() {  // переключение на максимальную станцию
         if (currentRadioStation <= minRadioStation) {
-            currentRadioStation = maxRadioStation;
+            currentRadioStation = numberRadioStation;
             return;
         }
         currentRadioStation--;
