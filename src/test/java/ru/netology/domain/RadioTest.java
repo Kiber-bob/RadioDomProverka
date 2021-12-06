@@ -13,7 +13,6 @@ class RadioTest {
         radio.setCurrentRadioStation(8);
         radio.switchRadioStationUp();
         radio.switchRadioStationUp();
-        radio.switchRadioStationUp();
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
@@ -26,7 +25,7 @@ class RadioTest {
         radio.switchRadioStationDown();
         radio.switchRadioStationDown();
         radio.switchRadioStationDown();
-        int expected = 10;
+        int expected = 9;
         int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
@@ -46,10 +45,10 @@ class RadioTest {
     @Test
     public void shouldUseNumberStation20Test() {
         Radio radio = new Radio(20); // Выставление номера станции напрямую
-        radio.setCurrentRadioStation(15);
+        radio.setCurrentRadioStation(10);
         radio.setCurrentRadioStation(20);
         radio.setCurrentRadioStation(-1);
-        int expected = 15;
+        int expected = 10;
         int actual = radio.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
